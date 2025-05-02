@@ -2,13 +2,15 @@ plugins {
     id 'maven-publish'
 }
 
+// pick up VERSION_NAME from env (set by Actions to the tag name)
+def rawTag = System.getenv('VERSION_NAME') ?: '0.0.0'
+version = rawTag.startsWith('v') ? rawTag.substring(1) : rawTag
 group   = 'com.theleftbit'
-version = '1.0.0'
 
 def githubRepo = 'theleftbit/LemonKit'
 def githubUrl  = "https://maven.pkg.github.com/$githubRepo"
-def ghUser     = theleftbit //System.getenv('GITHUB_ACTOR')
-def ghToken    = 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 //System.getenv('GITHUB_TOKEN')
+def ghUser     = System.getenv('PUBLISH_USER')
+def ghToken    = System.getenv('PUBLISH_PAT_TOKEN')
 
 publishing {
     publications {
