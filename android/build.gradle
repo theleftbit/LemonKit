@@ -2,10 +2,8 @@ plugins {
     id 'maven-publish'
 }
 
-// pick up VERSION_NAME from env (set by Actions to the tag name)
-def rawTag = System.getenv('VERSION_NAME') ?: '0.0.0'
-version = rawTag.startsWith('v') ? rawTag.substring(1) : rawTag
 group   = 'com.theleftbit'
+version = System.getenv('VERSION_NAME') ?: '0.0.0'
 
 def githubRepo = 'theleftbit/LemonKit'
 def githubUrl  = "https://maven.pkg.github.com/$githubRepo"
@@ -14,17 +12,23 @@ def ghToken    = System.getenv('PUBLISH_PAT_TOKEN')
 
 publishing {
     publications {
-        ['debug', 'release'].each { buildType ->
-            fileTree(dir: "lib/$buildType", include: '*.aar').each { File aar ->
-                // strip the -debug/.aar or -release/.aar suffix from the filename
-                def base = aar.name.replaceFirst(/-${buildType}\\.aar$/, '')
-                // form a lowercase, single-suffix artifactId
+        ['debug','release'].each { buildType ->
+            // only match files ending in -debug.aar or -release.aar
+            fileTree(dir: "lib/${buildType}", include: ["*-${buildType}.aar"]).each { File aar ->
+                // 1) remove the trailing ".aar"
+                def noExt = aar.name.replaceFirst(/\.aar$/, '')
+                // 2) remove the "-debug" or "-release" suffix
+                def base  = noExt.replaceFirst(/-${buildType}$/, '')
+                // 3) re-append the flavor and lowercase
                 def artId = "${base}-${buildType}".toLowerCase()
+
                 create(artId, MavenPublication) {
                     groupId    = project.group
                     artifactId = artId
-                    version    = project.version  // bump this if you’ve already published 1.0.0
-                    artifact(aar) { extension = 'aar' }
+                    version    = project.version
+                    artifact(aar) {
+                        extension = 'aar'
+                    }
                 }
             }
         }
