@@ -17,6 +17,7 @@ public class LemonAPIClient: APIClient, @unchecked Sendable {
         _ = try await perform(request)
     }
     
+    #if canImport(Darwin)
     public func sendAppLaunch(deviceUUID: UUID) async throws {
         let osVersion = ProcessInfo.processInfo.operatingSystemVersion
         let request = Request<VoidResponse>(
@@ -29,7 +30,8 @@ public class LemonAPIClient: APIClient, @unchecked Sendable {
         )
         _ = try await perform(request)
     }
-
+    #endif
+    
     //MARK: Private
 
     private init() {

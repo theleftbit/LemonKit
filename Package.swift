@@ -17,11 +17,19 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/theleftbit/BSWFoundation.git", from: "7.1.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.4.4"),
+        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.2"),
     ],
     targets: [
         .target(
             name: "LemonKit",
-            dependencies: ["BSWFoundation"]
+            dependencies: [
+                "BSWFoundation",
+                .product(name: "SkipFuse", package: "skip-fuse")
+            ],
+            plugins: [
+                .plugin(name: "skipstone", package: "skip")
+            ]
         ),
         .testTarget(
             name: "LemonKitTests",
