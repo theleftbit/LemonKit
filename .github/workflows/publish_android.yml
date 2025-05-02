@@ -1,0 +1,31 @@
+name: Publish AARs on Tag
+
+on:
+  push:
+    tags:
+      - '*'        # runs on every new tag
+
+jobs:
+  publish:
+    runs-on: mobile
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Export Debug AARs
+        run: |
+          skip export --module LemonKit --no-export-project -d android/lib/debug/ --debug
+
+      - name: Export Release AARs
+        run: |
+          skip export --module LemonKit --no-export-project -d android/lib/release/ --release
+
+      - name: Publish AARs
+        working-directory: android
+        env:
+          VERSION_NAME: ${{ github.ref_name }}
+          PUBLISH_USER: ${{ secrets.PUBLISH_USER }}
+          PUBLISH_PAT_TOKEN: ${{ secrets.PUBLISH_PAT_TOKEN }}
+        run: |
+          ./gradlew publish
