@@ -12,6 +12,7 @@ let package = Package(
     products: [
         .library(
             name: "LemonKit",
+            type: .dynamic,
             targets: ["LemonKit"]
         ),
     ],

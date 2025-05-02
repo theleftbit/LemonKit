@@ -1,10 +1,13 @@
 import Foundation
 import BSWFoundation
 
+/* SKIP @bridge */
 public class LemonAPIClient: APIClient, @unchecked Sendable {
-
+    
+    /* SKIP @bridge */
     public static let shared = LemonAPIClient()
 
+    /* SKIP @bridge */
     public func sendAppLaunch(platformUserID: String, projectName: String, osVersion: String, appVersion: String) async throws {
         let request = Request<VoidResponse>(
             endpoint: Requests.sendAppLaunch(
