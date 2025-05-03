@@ -13,6 +13,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Clean .build folder
+        run: |
+          rm -rf .build/
+
       - name: Export Debug AARs
         run: |
           skip export --module LemonKit --no-export-project -d android/lib/debug/ --debug
@@ -25,7 +29,7 @@ jobs:
         working-directory: android
         env:
           VERSION_NAME: ${{ github.ref_name }}
-          PUBLISH_USER: ${{ secrets.PUBLISH_USER }}
-          PUBLISH_PAT_TOKEN: ${{ secrets.PUBLISH_PAT_TOKEN }}
+          GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ./gradlew publish
