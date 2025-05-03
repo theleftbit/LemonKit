@@ -7,8 +7,8 @@ version = System.getenv('VERSION_NAME') ?: '0.0.0'
 
 def githubRepo = 'theleftbit/LemonKit'
 def githubUrl  = "https://maven.pkg.github.com/$githubRepo"
-def ghUser     = System.getenv('PUBLISH_USER')
-def ghToken    = System.getenv('PUBLISH_PAT_TOKEN')
+def ghUser     = System.getenv('GITHUB_ACTOR')
+def ghToken    = System.getenv('GITHUB_TOKEN')
 
 publishing {
     publications {
