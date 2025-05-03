@@ -2,6 +2,37 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
+import Foundation
+
+let zero = ProcessInfo.processInfo.environment["SKIP_ZERO"] != nil
+
+var packageDependencies: [Package.Dependency] = [
+    .package(url: "https://github.com/theleftbit/BSWFoundation.git", from: "7.1.0"),
+]
+
+if !zero {
+    packageDependencies.append(contentsOf: [
+        .package(url: "https://source.skip.tools/skip.git", from: "1.5.6"),
+        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.2"),
+    ])
+}
+
+var targetDependencies: [Target.Dependency] = [
+    "BSWFoundation",
+]
+
+if !zero {
+    targetDependencies.append(contentsOf: [
+        .product(name: "SkipFuse", package: "skip-fuse")
+    ])
+}
+
+var plugins: [Target.PluginUsage] = []
+if !zero {
+    plugins.append(contentsOf: [
+        .plugin(name: "skipstone", package: "skip")
+    ])
+}
 
 let package = Package(
     name: "LemonKit",
@@ -16,21 +47,12 @@ let package = Package(
             targets: ["LemonKit"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/theleftbit/BSWFoundation.git", from: "7.1.0"),
-        .package(url: "https://source.skip.tools/skip.git", from: "1.4.4"),
-        .package(url: "https://source.skip.tools/skip-fuse.git", from: "1.0.2"),
-    ],
+    dependencies: packageDependencies,
     targets: [
         .target(
             name: "LemonKit",
-            dependencies: [
-                "BSWFoundation",
-                .product(name: "SkipFuse", package: "skip-fuse")
-            ],
-            plugins: [
-                .plugin(name: "skipstone", package: "skip")
-            ]
+            dependencies: targetDependencies,
+            plugins: plugins
         ),
         .testTarget(
             name: "LemonKitTests",
