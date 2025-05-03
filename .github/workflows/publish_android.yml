@@ -13,6 +13,10 @@ jobs:
       - name: Check out code
         uses: actions/checkout@v4
 
+      - name: Clean .build folder
+        run: |
+          rm -rf .build/
+
       - name: Export Debug AARs
         run: |
           skip export --module LemonKit --no-export-project -d android/lib/debug/ --debug
