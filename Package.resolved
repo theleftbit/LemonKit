@@ -1,5 +1,5 @@
 {
-  "originHash" : "84c43c0c5a97a99cffc127a52fc99a1ac72105da391086aa9043f478dcfe5792",
+  "originHash" : "f1e926fab9260366ab861ed0c82cc7e6d6496e11c8e9d4df988ebbf9b6196863",
   "pins" : [
     {
       "identity" : "bswfoundation",
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip.git",
       "state" : {
-        "revision" : "443a0a3be7e3de28cce5326bb556a5ed56af1f3e",
-        "version" : "1.5.6"
+        "revision" : "05556ff97d7ebf9dd98df6bc1472dd972a17f465",
+        "version" : "1.5.11"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip-bridge.git",
       "state" : {
-        "revision" : "c286133c2cc9ed1b1d339bcf99bbdc45b2634ba2",
-        "version" : "0.14.0"
+        "revision" : "7ce2abbe797f9ac6f3f93478d5cd640a9c0d61a3",
+        "version" : "0.14.1"
       }
     },
     {
