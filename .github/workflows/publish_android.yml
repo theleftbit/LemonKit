@@ -17,6 +17,10 @@ jobs:
         run: |
           rm -rf .build/
 
+      - name: Skip upgrade
+        run: |
+          skip upgrade
+
       - name: Export Debug AARs
         run: |
           skip export --module LemonKit --no-export-project -d android/lib/debug/ --debug
