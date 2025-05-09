@@ -26,7 +26,7 @@ public class LemonAPIClient: APIClient, @unchecked Sendable {
         let request = Request<VoidResponse>(
             endpoint: Requests.sendAppLaunch(
                 platformUserID: deviceUUID.uuidString,
-                projectName: Bundle.main.bundleIdentifier ?? "com.mediquo.main",
+                projectName: Bundle.main.bundleIdentifier ?? "com.tlb.main",
                 osVersion: "\(osVersion.majorVersion).\(osVersion.minorVersion).\(osVersion.patchVersion)",
                 appVersion: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
             )
