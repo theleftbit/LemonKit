@@ -27,6 +27,8 @@ And this to your `dependencies`:
 ```
 debugImplementation(libs.bundles.lemonDebug)
 releaseImplementation(libs.bundles.lemonRelease)
+
+implementation("org.jetbrains.kotlin:kotlin-reflect") // If not already there
 ```
 
 And in your `gradle/libs.versions.toml`
