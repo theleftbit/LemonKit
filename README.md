@@ -62,6 +62,7 @@ And in your `proguard-rules.pro`:
 ```
 ##---------------Skip----------
 -keeppackagenames **
+-keep class lemon.kit.** { *; }
 -keep class skip.** { *; }
 -keep class tools.skip.** { *; }
 -keep class kotlin.jvm.functions.** {*;}
