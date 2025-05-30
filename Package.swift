@@ -46,6 +46,10 @@ let package = Package(
             type: .dynamic,
             targets: ["LemonKit"]
         ),
+        .library(
+            name: "LemonStaticKit",
+            targets: ["LemonKit"]
+        ),
     ],
     dependencies: packageDependencies,
     targets: [
