@@ -6,8 +6,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/theleftbit/BSWFoundation.git",
       "state" : {
-        "revision" : "0c08a587a2f4ee10811606bfc85fad129104ba01",
-        "version" : "7.1.0"
+        "revision" : "0f14a68d6771bc2311d2fc46048a4a24c7b6a4eb",
+        "version" : "7.2.1"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip.git",
       "state" : {
-        "revision" : "05556ff97d7ebf9dd98df6bc1472dd972a17f465",
-        "version" : "1.5.11"
+        "revision" : "85594bc9130ba1a5e9061322888738a36a7ddee3",
+        "version" : "1.5.18"
       }
     },
     {
@@ -33,8 +33,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip-android-bridge.git",
       "state" : {
-        "revision" : "c7b453bf804c4310eccd84b48d26e9ee8d10d830",
-        "version" : "0.4.5"
+        "revision" : "98079bb2c5a8a93e71ce270eec6a5a5451c64dc0",
+        "version" : "0.5.0"
       }
     },
     {
@@ -51,8 +51,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip-foundation.git",
       "state" : {
-        "revision" : "1f3aa51ed5cff2c62f1e6a22a44c61198deefa5c",
-        "version" : "1.3.3"
+        "revision" : "3e2451134334c93e3f83d06e2428d70bc5030caa",
+        "version" : "1.3.5"
       }
     },
     {
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip-lib.git",
       "state" : {
-        "revision" : "9380b16f637bcc839486f42124297935879b7ee4",
-        "version" : "1.3.4"
+        "revision" : "7302c637824bc0700c852a351d4982f4f7d54a3b",
+        "version" : "1.3.6"
       }
     },
     {
@@ -87,8 +87,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/skip-unit.git",
       "state" : {
-        "revision" : "d7988bf16a3cfb6d0956bf378044cb258ea9312e",
-        "version" : "1.1.2"
+        "revision" : "dc579f46ce0bef8d4c2158ec1c1662abef626283",
+        "version" : "1.1.3"
       }
     },
     {
@@ -96,8 +96,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://source.skip.tools/swift-android-native.git",
       "state" : {
-        "revision" : "04415c097c73455a31a9553ddf7a85711ebd3b97",
-        "version" : "1.4.0"
+        "revision" : "8bfa631886b4dd1f9e3fc3f43d653a71b6d19295",
+        "version" : "1.4.3"
       }
     },
     {
